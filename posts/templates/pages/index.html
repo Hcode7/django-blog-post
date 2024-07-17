@@ -4,7 +4,7 @@
 
 
 {% block content %}
-{% include "pages/pagination.html" with post=page %}
+{% include "pages/pagination.html" with page=page_obj %}
 
     <style>
         h1 {
@@ -26,7 +26,11 @@
         h4 {
             margin: 3px;
             color: rgb(114, 114, 114);
-            /* float: right; */
+        }
+        a  {
+            color: black;
+            text-decoration: none;
+            
         }
     </style>
     {% for post in posts %}
