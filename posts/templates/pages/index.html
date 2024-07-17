@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+
+<title>{% block title %}{% endblock title %}</title>
+
+
+{% block content %}
+{% include "pages/pagination.html" with post=page %}
+
+    <style>
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            margin: 15px;
+            font-size: 30px;
+        }
+        h3 {
+            margin: 17px;
+            font-size: 25px;
+            color: salmon;
+        }
+        p {
+            margin: 35px;
+            font-size: 30px;
+        }
+        h4 {
+            margin: 3px;
+            color: rgb(114, 114, 114);
+            /* float: right; */
+        }
+    </style>
+    {% for post in posts %}
+    <hr>
+
+    <h2>
+        <a href="{{ post.get_absolute_url }}">
+            {{ post.title }}
+        </a>
+    </h2>
+    <h3>{{ post.slug }}</h3>
+    <h4>{{ post.published }}</h4>
+    <p>{{ post.body}}</p>
+    <br>
+    <hr>
+    {% endfor %}
+{% endblock content %}

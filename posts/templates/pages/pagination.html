@@ -1,0 +1,35 @@
+<style>
+    .pagination {
+        margin: 20px;
+    }
+    .pervious {
+        font-size: 25px;
+        text-decoration: none;
+    }
+    span {
+        margin: 39px;
+        font-size: x-large;
+    }
+    .next {
+        font-size: 25px;
+        text-decoration: none;
+    }
+    .pervious, .next {
+        color: blue;
+    }
+</style>
+
+<div class="pagination">
+    {% if posts.has_previous %}
+    <a  class='pervious' href="?page={{ posts.previous_page_number }}"> < Pervious</a>
+    {% endif %}
+
+    {% if posts.has_next %}
+    <a class="next" href="?page={{ posts.next_page_number }}">Next > </a>
+    {% endif %}
+    <br>
+    <br>
+    <span>
+        Page : <a href="#">{{ posts.number }}</a> of {{ posts.paginator.num_pages }}
+    </span>
+</div>
